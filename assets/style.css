@@ -1,3 +1,25 @@
 body{
-  background-color: brown;
+  background-image: url(../assets/img/background-from-numbers-vector-3674836.jpg);
+  background-size: cover;
+}
+main{
+  margin: 40px 40px;
+}
+h2{
+  margin: 15px 0px;
+  color: #56c501;
+}
+h1{
+  margin: 20px 0px;
+  color: #0088d9;
+}
+input{
+  border-radius: 10px;
+  background-color: #f855a4;
+  color: #f1d704;
+}
+button{
+  border-radius: 20px;
+  background-color: #f20002;
+  color: #fcaf13;
 }

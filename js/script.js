@@ -6,20 +6,21 @@ const btnDadiJs = document.getElementById("btn-dadi");
 const resultJs = document.getElementById("result")
 const resultCalc = document.getElementById("result-calc")
 
-
-
 btnJs.addEventListener("click", function(){
-  
   const wordCheck = inpJs.value;
+  if (wordCheck.length < 3) {
+
+    return resultJs.innerHTML = "Attenzione!!! Inserisci una parola di almeno tre lettere."
+    
+  }
+  
+  
   palindro(wordCheck,resultJs);
 
 })
 
-
-
 btnDadiJs.addEventListener('click',function(){
 
-  
   const numberPlayer = parseInt(inpDadiJs.value);
   const numeroPc = RandomNumber(1,5);
   const addedNumber = numberPlayer + numeroPc;
@@ -32,11 +33,19 @@ btnDadiJs.addEventListener('click',function(){
 
     resultCalc.innerHTML = "ATTENZIONE!!! Inserisci un numero da 1 a 5"
 
-  }else if (inpResult.value == checkParDisp(addedNumber)) {
+  }else if (inpResult.value.toLowerCase() == checkParDisp(addedNumber)) {
 
-    resultCalc.innerHTML = "HAI VINTO"
+    resultCalc.innerHTML = `Tu hai scielto il numero ${numberPlayer}.<br>
+    Il computer ha scielto il numero ${numeroPc}.<br>
+    La somma e ${addedNumber} e quindi e ${checkParDisp(addedNumber)} .<br>
+    HAI VINTO`
+    
 
-  }else{resultCalc.innerHTML = "HAI PERSO"}
+  }else{
+  resultCalc.innerHTML = `Tu hai scielto il numero ${numberPlayer}.<br>
+  Il computer ha scielto il numero ${numeroPc}.<br>
+  La somma e ${addedNumber} e quindi e ${checkParDisp(addedNumber)} .<br>
+  HAI PERSO`}
 
 })
 
@@ -44,11 +53,6 @@ btnDadiJs.addEventListener('click',function(){
 
 function palindro(word, eIHTML) {
 
-  if (word.length < 3) {
-
-    return eIHTML.innerHTML = "Inserisci una parola di almeno tre lettere."
-    
-  }
   const wardRevers = word.split("").reverse().join("");
   return eIHTML.innerHTML = word === wardRevers ? "palindromo" : "non palindromo";
  
