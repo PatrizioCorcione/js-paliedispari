@@ -52,8 +52,8 @@ btnDadiJs.addEventListener('click',function(){
 
 function palindro(word, eIHTML) {
 
-  for (let i = 0; i < word.length/2; i++) {
-    if (word[i] !== word[word.length - 1 - i]) { 
+  for (let i = 0; i < word.toLowerCase().length/2; i++) {
+    if (word.toLowerCase()[i] !== word.toLowerCase()[word.toLowerCase().length - 1 - i]) { 
       return eIHTML.innerHTML="Non e palindroma"; 
   }
 }
