@@ -14,7 +14,6 @@ btnJs.addEventListener("click", function(){
     
   }
   
-  
   palindro(wordCheck,resultJs);
 
 })
@@ -53,8 +52,13 @@ btnDadiJs.addEventListener('click',function(){
 
 function palindro(word, eIHTML) {
 
-  const wardRevers = word.split("").reverse().join("");
-  return eIHTML.innerHTML = word === wardRevers ? "palindromo" : "non palindromo";
+  for (let i = 0; i < word.length/2; i++) {
+    if (word[i] !== word[word.length - 1 - i]) { 
+      return eIHTML.innerHTML="Non e palindroma"; 
+  }
+}
+return eIHTML.innerHTML="E palindroma"
+
  
 }
 
