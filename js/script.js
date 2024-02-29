@@ -23,8 +23,9 @@ btnDadiJs.addEventListener('click',function(){
   const numberPlayer = parseInt(inpDadiJs.value);
   const numeroPc = RandomNumber(1,5);
   const addedNumber = numberPlayer + numeroPc;
+  const strRes = inpResult.value.toLowerCase();
 
-  if((inpResult.value.toLowerCase() !== "pari") && (inpResult.value.toLowerCase() !== "dispari") ){
+  if((strRes !== "pari") && (strRes !== "dispari") ){
 
     resultCalc.innerHTML = "ATTENZIONE!!! Inserisci pari o dispari"
 
@@ -32,19 +33,21 @@ btnDadiJs.addEventListener('click',function(){
 
     resultCalc.innerHTML = "ATTENZIONE!!! Inserisci un numero da 1 a 5"
 
-  }else if (!checkParDisp(addedNumber)){
+  }else if ((checkParDisp(addedNumber) && (strRes == "pari")) || (!(checkParDisp(addedNumber)) && (strRes == "dispari"))){
 
     resultCalc.innerHTML = `Tu hai scielto il numero ${numberPlayer}.<br>
     Il computer ha scielto il numero ${numeroPc}.<br>
-    La somma e ${addedNumber} e quindi e ${checkParDisp(addedNumber)} .<br>
+    La somma e ${addedNumber} .<br>
     HAI VINTO`
     
 
   }else{
-  resultCalc.innerHTML = `Tu hai scielto il numero ${numberPlayer}.<br>
-  Il computer ha scielto il numero ${numeroPc}.<br>
-  La somma e ${addedNumber} e quindi e ${checkParDisp(addedNumber)} .<br>
-  HAI PERSO`}
+
+    resultCalc.innerHTML = `Tu hai scielto il numero ${numberPlayer}.<br>
+    Il computer ha scielto il numero ${numeroPc}.<br>
+    La somma e ${addedNumber} .<br>
+    HAI PERSO`
+  }
 
 })
 
@@ -70,9 +73,11 @@ function RandomNumber(min, max){
 
 function checkParDisp(summ){
 
-  if (summ % 2 == 0) {
-    return true
+  if (summ % 2 === 0) {
+    return true;
     
+  }else{
+    return false;
   }
-  return false
+  
 }
