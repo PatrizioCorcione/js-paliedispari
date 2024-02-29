@@ -32,7 +32,7 @@ btnDadiJs.addEventListener('click',function(){
 
     resultCalc.innerHTML = "ATTENZIONE!!! Inserisci un numero da 1 a 5"
 
-  }else if (checkParDisp(addedNumber)) {
+  }else if (!checkParDisp(addedNumber)){
 
     resultCalc.innerHTML = `Tu hai scielto il numero ${numberPlayer}.<br>
     Il computer ha scielto il numero ${numeroPc}.<br>
@@ -71,7 +71,8 @@ function RandomNumber(min, max){
 function checkParDisp(summ){
 
   if (summ % 2 == 0) {
-    return false
+    return true
     
   }
+  return false
 }
