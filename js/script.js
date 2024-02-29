@@ -7,7 +7,7 @@ const resultJs = document.getElementById("result")
 const resultCalc = document.getElementById("result-calc")
 
 btnJs.addEventListener("click", function(){
-  const wordCheck = inpJs.value;
+  const wordCheck = inpJs.value.toLowerCase();
   if (wordCheck.length < 3) {
 
     return resultJs.innerHTML = "Attenzione!!! Inserisci una parola di almeno tre lettere."
@@ -32,7 +32,7 @@ btnDadiJs.addEventListener('click',function(){
 
     resultCalc.innerHTML = "ATTENZIONE!!! Inserisci un numero da 1 a 5"
 
-  }else if (inpResult.value.toLowerCase() == checkParDisp(addedNumber)) {
+  }else if (checkParDisp(addedNumber)) {
 
     resultCalc.innerHTML = `Tu hai scielto il numero ${numberPlayer}.<br>
     Il computer ha scielto il numero ${numeroPc}.<br>
@@ -52,8 +52,8 @@ btnDadiJs.addEventListener('click',function(){
 
 function palindro(word, eIHTML) {
 
-  for (let i = 0; i < word.toLowerCase().length/2; i++) {
-    if (word.toLowerCase()[i] !== word.toLowerCase()[word.toLowerCase().length - 1 - i]) { 
+  for (let i = 0; i < word.length/2; i++) {
+    if (word[i] !== word[word.length - 1 - i]) { 
       return eIHTML.innerHTML="Non e palindroma"; 
   }
 }
@@ -70,12 +70,8 @@ function RandomNumber(min, max){
 
 function checkParDisp(summ){
 
-  if (summ % 2 ==0) {
-    return "pari"
+  if (summ % 2 == 0) {
+    return false
     
-  }else{
-
-    return "dispari"
-  } 
-  
+  }
 }
